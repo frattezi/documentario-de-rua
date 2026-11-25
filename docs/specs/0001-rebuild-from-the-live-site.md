@@ -1,6 +1,6 @@
 # Spec 0001: Rebuild the site from the live build
 
-Status: draft. Vocabulary: Fractory's glossary (Spec, Ticket, Run).
+Status: accepted (2026-11-25). Vocabulary: Fractory's glossary (Spec, Ticket, Run).
 
 ## Goal
 

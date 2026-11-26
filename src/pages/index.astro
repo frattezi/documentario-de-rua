@@ -1,11 +1,13 @@
 ---
-// The site is one page (ADR 0002). Sections are in the order the live build has them, and with
-// the same whitespace between tags, which the parity test compares.
+// The site is one page (ADR 0002), in the order Spec 0002 sets: the Project is presented, its
+// Stories are watched, then the visitor is asked to take part, and the Film follows.
+// The markup carries no whitespace between tags, as the live build emits it.
 import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
 import Channel from "../components/Channel.astro";
-import Support from "../components/Support.astro";
+import Participate from "../components/Participate.astro";
 import Film from "../components/Film.astro";
 import Voices from "../components/Voices.astro";
 import Timeline from "../components/Timeline.astro";
@@ -14,6 +16,6 @@ import Footer from "../components/Footer.astro";
 ---
 <Base
   ><Header /><main
-    ><Hero /><Channel /><Support /><Film /><Voices /><Timeline /><Law /></main
+    ><Hero /><About /><Channel /><Participate /><Film /><Voices /><Timeline /><Law /></main
   ><Footer /></Base
 >

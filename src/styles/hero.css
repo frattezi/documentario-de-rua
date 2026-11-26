@@ -313,3 +313,15 @@ button.screen {
     transition: none;
   }
 }
+
+/* The featured Film's name, immediately above the line that invites the visitor to watch it.
+   The Project's name is the title above; this says which Film the player holds (Spec 0002). */
+.featured {
+  font-family: var(--f-display);
+  letter-spacing: 0.04em;
+  color: var(--sign);
+  margin-bottom: 6px;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1;
+  display: block;
+}

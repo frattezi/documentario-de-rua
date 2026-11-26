@@ -3,7 +3,15 @@
 // The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
 import Icon from "./Icon.astro";
 import YouTubePlayer from "./YouTubePlayer";
-import { filmFacts, filmVideo, heroCalls, heroPhoto as photo, heroTitle as t, watchLine } from "../content/hero";
+import {
+  featuredFilmName,
+  filmFacts,
+  filmVideo,
+  heroCalls,
+  heroPhoto as photo,
+  heroTitle as t,
+  watchLine,
+} from "../content/hero";
 import "../styles/hero.css";
 ---
 <section class="hero" aria-labelledby="t"
@@ -21,7 +29,7 @@ import "../styles/hero.css";
       ></span
     ></h1
   ><div class="wrap"
-    ><span class="type">{watchLine}</span><div class="player"
+    ><span class="featured">{featuredFilmName}</span><span class="type">{watchLine}</span><div class="player"
       ><YouTubePlayer client:visible {...filmVideo} /><div class="meta"
         ><strong>{filmFacts.kind}</strong><span>{filmFacts.place}</span></div
       ><div class="cta"

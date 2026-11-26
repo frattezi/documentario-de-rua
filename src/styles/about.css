@@ -1,0 +1,10 @@
+/* The presentation. It borrows the page's existing type scale rather than introducing one:
+   Spec 0002 changes words and sections, not the design language. */
+.about-body {
+  gap: 18px;
+  margin-top: 28px;
+  display: grid;
+}
+.about-body .lede {
+  margin: 0;
+}

@@ -1,0 +1,59 @@
+---
+// The three calls to action, in one section, with #ajude, #apoie and #faca-parte as anchors
+// inside it. #apoie keeps its id, so the hero's "Doe via PIX" pill and every shared link still
+// land on the donation card (ADR 0002).
+//
+// The wording is provisional until the owner settles it; while it is, the section says so.
+import PixCopy from "./PixCopy";
+import { calls, formPendingReason, participate } from "../content/participate";
+import { site } from "../content/site";
+import { pixKey, support } from "../content/support";
+import "../styles/support.css";
+import "../styles/participate.css";
+---
+<section id="participe" class="participate" aria-labelledby="participe-h"
+  ><div class="wrap"
+    ><span class="eyebrow">{participate.eyebrow}</span><h2 class="h2" id="participe-h"
+      >{participate.heading}</h2
+    >{
+      site.participateCopyIsProvisional && (
+        <p class="draft" role="note">{participate.provisionalNotice}</p>
+      )
+    }<div class="calls"
+      >{
+        calls.map((call) => (
+          <article class="call" id={call.id} aria-labelledby={`${call.id}-h`}
+            ><span class="eyebrow">{call.eyebrow}</span><h3 class="call__h" id={`${call.id}-h`}
+              >{call.heading}</h3
+            ><p
+              class="call__body"
+              >{call.body}</p
+            >{
+              call.kind === "pix" ? (
+                <div class="pixcard"
+                  ><div class="qr">{support.qrLabel}</div><div
+                    ><span class="lbl">{support.keyLabel}</span><PixCopy
+                      client:visible
+                      pixKey={pixKey}
+                    /></div
+                  ></div
+                >
+              ) : site.forms[call.form!] ? (
+                <a class="btn" href={site.forms[call.form!]!} target="_blank" rel="noopener"
+                  >{call.action}</a
+                >
+              ) : (
+                <Fragment
+                  ><button class="btn" type="button" disabled>{call.action}</button><span
+                    class="pending"
+                    >{formPendingReason}</span
+                  ></Fragment
+                >
+              )
+            }</article
+        >
+        ))
+      }</div
+    ></div
+  ></section
+>

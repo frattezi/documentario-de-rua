@@ -64,3 +64,22 @@
     margin-left: -11px;
   }
 }
+
+/* The Project's mark sits above the byline. Until the logo exists the mark is the text
+   wordmark, set in the display face so the header still reads as a masthead (Spec 0002). */
+.brand {
+  flex-direction: column;
+  gap: 2px;
+  display: flex;
+}
+.wordmark {
+  font-family: var(--f-display);
+  letter-spacing: 0.04em;
+  font-size: 26px;
+  line-height: 1;
+}
+.wordmark__img {
+  width: auto;
+  height: 28px;
+  display: block;
+}

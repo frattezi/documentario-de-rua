@@ -21,6 +21,15 @@ export interface Voice {
 export const voicesSection = {
   eyebrow: "Quem fala no filme",
   heading: "Cinco vozes de quem vive na rua",
+  /**
+   * These sentences were published under the donation ask. Spec 0002 moves the ask to
+   * #participe and keeps them here, with the people they are about, unchanged.
+   *
+   * They still carry a promise about where the PIX goes, which is the one question the owner
+   * has to settle before the site is deployed.
+   */
+  lede:
+    "Wagner busca água de carrinho todos os dias. O barraco de Charles pegou fogo e ele ficou só com a roupa do corpo. Em breve, uma contribuição via PIX vai poder ajudar quem vive na rua em Belo Horizonte.",
 } as const;
 
 export const voices: readonly Voice[] = [

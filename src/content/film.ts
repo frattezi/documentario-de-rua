@@ -24,6 +24,11 @@ export interface Screening {
 
 export const film = {
   eyebrow: "Sobre o filme",
+  /**
+   * What the header's byline used to say. It moves here with Spec 0002, because UFMG and 2026
+   * describe this Film, not the Project. The string is unchanged.
+   */
+  production: "Guilherme Simões · UFMG · 2026",
   heading: "Ouvir quem mora na rua",
   synopsis:
     "Em 2025, a Câmara Municipal de Belo Horizonte votou o PL 174/2025, que autoriza a internação involuntária de pessoas em situação de rua usuárias de drogas. O diretor acompanhou audiências e plenárias e viu que a proposta não tinha interesse em dialogar com quem mora na rua. Então foi até o Viaduto Angola e a Avenida dos Andradas para ouvir Jéssica, Leidiane, Charles, Wagner e Diego.",

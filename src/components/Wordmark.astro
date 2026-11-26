@@ -1,0 +1,12 @@
+---
+// The Project's mark: the logo image once there is one, the text wordmark until then. Same
+// fallback pattern as the PIX key — nothing waits on the artwork (Spec 0002).
+import { site } from "../content/site";
+---
+{
+  site.logo ? (
+    <img class="wordmark__img" src={site.logo} alt={site.name} />
+  ) : (
+    <span class="wordmark">{site.name}</span>
+  )
+}

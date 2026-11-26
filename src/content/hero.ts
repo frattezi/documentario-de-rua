@@ -1,5 +1,10 @@
-// The hero: the Film's title over the overpass photo, its player, its facts and the three calls.
-// Copy is verbatim from reference/live/index.html.
+// The hero: the Project's name over the overpass photo, then the featured Film — its player,
+// its facts and the three calls.
+//
+// The photo, the title treatment, the location tag and the calls are as the live build has them;
+// only the words of the title change, to the Project's name (Spec 0002). Everything below the
+// title is the Film's, verbatim from reference/live/index.html.
+import { projectName } from "./site";
 
 /** The overpass photo behind the title, in its two crops. */
 export interface HeroPhoto {
@@ -41,10 +46,10 @@ export interface HeroCall {
 }
 
 export const heroTitle = {
-  /** The accessible name of the h1. */
-  label: "Entre a Lei e a Rua",
+  /** The accessible name of the h1: the Project's name, not the Film's (Spec 0002). */
+  label: projectName,
   /** The two lines of the title treatment. */
-  lines: ["Entre a Lei", "e a Rua"],
+  lines: ["Documentário", "de Rua"],
   tag: {
     start: "Viaduto Angola",
     /** Hidden on narrow screens. */
@@ -58,6 +63,9 @@ export const heroPhoto: HeroPhoto = {
   square: { src: "/img/overpass-sq.jpg", width: 880, height: 880 },
   squareMedia: "(max-width: 640px)",
 };
+
+/** The featured Film, named immediately above its player (Spec 0002). */
+export const featuredFilmName = "Entre a Lei e a Rua";
 
 export const watchLine = "Assista o documentário completo no YouTube";
 

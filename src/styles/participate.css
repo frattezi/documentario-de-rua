@@ -1,0 +1,61 @@
+/* The participation section. It reuses the PIX card, the pill-shaped button and the pending
+   badge the live build already has, so the three calls read as one family. */
+.participate {
+  background: var(--tarp);
+  color: #fff;
+}
+.participate .eyebrow {
+  color: #ffffffbf;
+}
+.participate .eyebrow:before {
+  background: #fff;
+}
+/* The draft notice is deliberately loud: it must not be mistaken for finished copy. */
+.draft {
+  font-family: var(--f-mono);
+  letter-spacing: 0.04em;
+  background: var(--sign);
+  color: var(--ink);
+  border-radius: 4px;
+  max-width: 62ch;
+  margin: 24px 0 0;
+  padding: 12px 16px;
+  font-size: 13px;
+}
+.calls {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  gap: 32px;
+  margin-top: 40px;
+  display: grid;
+}
+.call {
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  display: flex;
+}
+.call .eyebrow {
+  margin-bottom: 4px;
+}
+.call__h {
+  font-family: var(--f-cap);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin: 0;
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 900;
+  line-height: 1.12;
+}
+.call__body {
+  margin: 0;
+}
+.call .pending {
+  align-self: start;
+}
+@media (width <= 860px) {
+  .calls {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

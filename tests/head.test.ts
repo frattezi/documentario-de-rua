@@ -5,6 +5,7 @@ import { loadRenderers } from "astro:container";
 import { parse, type HTMLElement } from "node-html-parser";
 import { beforeAll, describe, expect, it } from "vitest";
 import Index from "../src/pages/index.astro";
+import { site } from "../src/content/site";
 
 const live = parse(readFileSync(new URL("../reference/live/index.html", import.meta.url), "utf8"));
 
@@ -36,14 +37,27 @@ describe("document head", () => {
     built = parse(await container.renderToString(Index));
   });
 
-  it("is the live page's head", () => {
-    expect(head(built)).toEqual(head(live));
+  it("names the Project, not the Film", () => {
+    const { title, ogTitle, description, ogDescription } = head(built);
+    expect(title).toBe(site.name);
+    expect(ogTitle).toBe(site.name);
+    expect(description).toBe(site.description);
+    expect(ogDescription).toBe(site.description);
+    // The Film's title names only that Film, never the site itself.
+    expect(title).not.toContain("Entre a Lei e a Rua");
   });
 
-  it("has every field the live page sets", () => {
+  it("keeps the live page's share image, theme colour and language", () => {
     const reference = head(live);
-    expect(reference.title).toBe("Entre a Lei e a Rua — documentário");
-    expect(reference.og).toHaveLength(3);
-    expect(Object.values(reference).every((v) => v !== undefined)).toBe(true);
+    const { ogImage, themeColor, lang } = head(built);
+    expect(ogImage).toBe(reference.ogImage);
+    expect(themeColor).toBe(reference.themeColor);
+    expect(lang).toBe(reference.lang);
+  });
+
+  it("sets every field the live page set, so no link preview loses one", () => {
+    const fields = head(built);
+    expect(fields.og).toHaveLength(head(live).og.length);
+    expect(Object.values(fields).every((v) => v !== undefined)).toBe(true);
   });
 });

@@ -1,0 +1,14 @@
+---
+// The presentation. The live markup has no whitespace between tags; line breaks sit inside the
+// tags to keep it so.
+import { about } from "../content/about";
+import "../styles/about.css";
+---
+<section id="sobre" aria-labelledby="sobre-h"
+  ><div class="wrap"
+    ><span class="eyebrow">{about.eyebrow}</span><h2 class="h2" id="sobre-h">{about.heading}</h2><div
+      class="about-body"
+      >{about.paragraphs.map((p) => <p class="lede">{p}</p>)}</div
+    ></div
+  ></section
+>

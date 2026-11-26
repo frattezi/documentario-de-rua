@@ -5,7 +5,8 @@ import { loadRenderers } from "astro:container";
 import { parse, type HTMLElement } from "node-html-parser";
 import { beforeAll, describe, expect, it } from "vitest";
 import Hero from "../src/components/Hero.astro";
-import { filmVideo, heroCalls } from "../src/content/hero";
+import { featuredFilmName, filmVideo, heroCalls } from "../src/content/hero";
+import { projectName } from "../src/content/site";
 import { youtubeEmbedAllow, youtubeEmbedUrl } from "../src/lib/youtube";
 
 const live = readFileSync(new URL("../reference/live/index.html", import.meta.url), "utf8");
@@ -48,14 +49,20 @@ describe("hero", () => {
     built = section(await container.renderToString(Hero));
   });
 
-  it("has the live page's visible text", () => {
+  it("titles the Project and names the featured Film under it", () => {
     expect(text(built)).toBe(
-      "Entre a Lei e a RuaViaduto Angola · Av. Antônio Carlos · Belo Horizonte" +
-        "Assista o documentário completo no YouTube29:43" +
+      "Documentário de RuaViaduto Angola · Av. Antônio Carlos · Belo Horizonte" +
+        "Entre a Lei e a RuaAssista o documentário completo no YouTube29:43" +
         "Curta-metragem documental · 30 minBelo Horizonte, MG · Gravado em maio de 2025" +
         " Inscreva-se no canal Siga no InstagramDoe via PIX",
     );
-    expect(text(built)).toBe(text(reference));
+  });
+
+  it("keeps everything below the title exactly as the live page has it", () => {
+    // The title is the Project's now (Spec 0002); the Film's own lines are untouched.
+    const strip = (t: string): string =>
+      t.replace("Documentário de Rua", "").replace(/Entre a Lei e a Rua/g, "");
+    expect(strip(text(built))).toBe(strip(text(reference)));
   });
 
   it("has every href, src and srcset of the live page", () => {
@@ -65,10 +72,11 @@ describe("hero", () => {
     expect(attrs(built, "alt")).toEqual(attrs(reference, "alt"));
   });
 
-  it("names the title as the live page does", () => {
+  it("gives the h1 the Project's name and keeps the live page's labelling", () => {
     const h1 = built.querySelector("h1#t");
-    expect(h1?.getAttribute("aria-label")).toBe("Entre a Lei e a Rua");
+    expect(h1?.getAttribute("aria-label")).toBe(projectName);
     expect(built.getAttribute("aria-labelledby")).toBe("t");
+    expect(featuredFilmName).toBe("Entre a Lei e a Rua");
   });
 
   it("uses the square crop at 640px and below, the wide crop above", () => {
@@ -101,8 +109,16 @@ describe("hero", () => {
     expect(pills.map(text)).toEqual(heroCalls.map((c) => c.label));
   });
 
-  it("matches the live markup", () => {
-    expect(markup(built)).toBe(markup(reference));
+  it("matches the live markup from the player down", () => {
+    // Spec 0002 changes the title's words and names the featured Film above the player; the
+    // player, the film facts and the calls are the live build's markup, unchanged.
+    const player = (el: HTMLElement): string => markup(el.querySelector(".player")!);
+    expect(player(built)).toBe(player(reference));
+  });
+
+  it("keeps the live build's photo markup, only the title's words differ", () => {
+    const photo = (el: HTMLElement): string => markup(el.querySelector(".ov__photo")!);
+    expect(photo(built)).toBe(photo(reference));
   });
 });
 

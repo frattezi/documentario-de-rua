@@ -1,7 +1,9 @@
-// The header: the byline, the section nav and the two social icons.
-// Copy is verbatim from reference/live/index.html.
+// The header: the Project's mark, the byline, the section nav and the two social icons.
+//
+// The nav is anchors only: the site is one page (ADR 0002). Every section name is the one
+// already published; "Sobre" is the only new item, because #sobre is a new section.
 
-/** A nav item. Every one is an anchor on this page: the site is one page (ADR 0002). */
+/** A nav item. Every one is an anchor on this page. */
 export interface NavItem {
   label: string;
   /** The id it scrolls to, with its hash. */
@@ -17,9 +19,8 @@ export interface SocialIcon {
   href: string;
 }
 
-export const byline = "Guilherme Simões · UFMG · 2026";
-
 export const nav: readonly NavItem[] = [
+  { label: "Sobre", href: "#sobre" },
   { label: "Assista", href: "#canal" },
   { label: "Apoie", href: "#apoie" },
   { label: "O filme", href: "#filme" },

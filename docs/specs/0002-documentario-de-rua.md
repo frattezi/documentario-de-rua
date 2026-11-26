@@ -1,6 +1,6 @@
 # Spec 0002: Documentário de Rua
 
-Status: draft (2026-11-26). Vocabulary: [GLOSSARY.md](../../GLOSSARY.md) and Fractory's (Spec,
+Status: accepted (2026-11-26). Vocabulary: [GLOSSARY.md](../../GLOSSARY.md) and Fractory's (Spec,
 Ticket, Run). Follows [Spec 0001](0001-rebuild-from-the-live-site.md), which must be built and
 passing its parity gate first.
 

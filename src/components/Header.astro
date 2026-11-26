@@ -1,0 +1,22 @@
+---
+// The page header. The live markup has no whitespace between tags; line breaks sit inside the
+// tags to keep it so, because the nav items and icons are laid out with flex gaps.
+import Icon from "./Icon.astro";
+import { byline, nav, navLabel, socialIcons } from "../content/header";
+import "../styles/header.css";
+---
+<header class="wrap top"
+  ><span class="by">{byline}</span><span class="top-right"
+    ><nav aria-label={navLabel}
+      >{nav.map((item) => <a href={item.href}>{item.label}</a>)}</nav
+    ><span class="icons"
+      >{
+        socialIcons.map((social) => (
+          <a href={social.href} target="_blank" rel="noopener" aria-label={social.label}
+            ><Icon name={social.icon} /></a
+          >
+        ))
+      }</span
+    ></span
+  ></header
+>

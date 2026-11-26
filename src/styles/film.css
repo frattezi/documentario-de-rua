@@ -1,0 +1,72 @@
+/* The Film's section, recovered from the live build's stylesheet. The two lists are new
+   (ADR 0002) and borrow the credits list's type scale so the section reads as one. */
+.about .syn {
+  padding-top: 32px;
+}
+.syn {
+  grid-template-columns: 1.3fr 1fr;
+  gap: 32px;
+  display: grid;
+}
+.syn p {
+  color: #d7d3c9;
+  min-width: 0;
+  margin: 0;
+}
+.syn dl {
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  margin: 0;
+  font-size: 14px;
+  display: grid;
+}
+.syn dt {
+  font-family: var(--f-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+  padding-top: 3px;
+  font-size: 11px;
+}
+.syn dd {
+  margin: 0;
+}
+.film-list {
+  margin-top: 40px;
+}
+.film-list__h {
+  font-family: var(--f-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.film-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+.film-list li {
+  border-bottom: 1px solid var(--line);
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  display: flex;
+}
+.film-list small {
+  font-family: var(--f-mono);
+  color: var(--ash);
+  letter-spacing: 0.06em;
+  text-align: right;
+  flex: none;
+  font-size: 11px;
+}
+@media (width <= 860px) {
+  .syn {
+    grid-template-columns: 1fr;
+  }
+}

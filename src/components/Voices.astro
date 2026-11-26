@@ -1,0 +1,28 @@
+---
+// The five Voices, then the dedication on Diego's wall.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import Quote from "./Quote.astro";
+import { voices, voicesSection, wall } from "../content/voices";
+import "../styles/voices.css";
+---
+<section id="vozes" aria-labelledby="vozes-h"
+  ><div class="wrap"
+    ><span class="eyebrow">{voicesSection.eyebrow}</span><h2 class="h2" id="vozes-h"
+      >{voicesSection.heading}</h2
+    ><div class="voices"
+      >{
+        voices.map((voice) => (
+          <article class="voice"
+            ><Quote parts={voice.quote} /><div class="who"
+              ><b>{voice.name}</b><small>{voice.note}</small></div
+            ></article
+          >
+        ))
+      }</div
+    ></div
+  ></section
+><figure class="wall" aria-label={wall.label}
+  ><img src={wall.image.src} alt={wall.image.alt} loading="lazy" /><figcaption class="wrap"
+    ><Quote parts={wall.quote} /><small>{wall.credit}</small></figcaption
+  ></figure
+>

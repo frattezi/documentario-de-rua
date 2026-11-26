@@ -1,0 +1,59 @@
+/* The footer, recovered from the live build's stylesheet. */
+footer {
+  border-top: 1px solid var(--line);
+  padding-block: 48px 64px;
+}
+.credits {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  font-size: 13px;
+  display: grid;
+}
+.credits > div {
+  min-width: 0;
+}
+.credits h4 {
+  font-family: var(--f-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.credits p {
+  color: #cfcbc1;
+  margin: 0;
+}
+.follow {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+  display: flex;
+}
+.end {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-top: 48px;
+  display: flex;
+}
+.end .title-sm {
+  font-family: var(--f-display);
+  letter-spacing: 0.04em;
+  font-size: 40px;
+  line-height: 1;
+}
+.end small {
+  font-family: var(--f-mono);
+  color: var(--ash);
+  letter-spacing: 0.06em;
+  max-width: 60ch;
+  font-size: 11px;
+}
+@media (width <= 860px) {
+  .credits {
+    grid-template-columns: 1fr 1fr;
+  }
+}

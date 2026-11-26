@@ -1,0 +1,28 @@
+---
+// The footer: credits, the profiles to follow, and the closing note.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import Icon from "./Icon.astro";
+import { closing, credits, followLinks } from "../content/footer";
+import "../styles/footer.css";
+---
+<footer
+  ><div class="wrap"
+    ><div class="credits"
+      >{
+        credits.map((credit) => (
+          <div><h4>{credit.role}</h4><p>{credit.value}</p></div>
+        ))
+      }</div
+    ><div class="follow"
+      >{
+        followLinks.map((link) => (
+          <a class={`pill pill--${link.style}`} href={link.href} target="_blank" rel="noopener"
+            ><Icon name={link.icon} /> {link.handle}</a
+          >
+        ))
+      }</div
+    ><div class="end"
+      ><span class="title-sm">{closing.title}</span><small>{closing.note}</small></div
+    ></div
+  ></footer
+>

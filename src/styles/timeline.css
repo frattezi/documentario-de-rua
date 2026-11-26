@@ -1,0 +1,83 @@
+/* The overpass timeline, recovered from the live build's stylesheet. */
+.tl-wrap {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+.tl {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font-size: 15px;
+}
+.tl th {
+  font-family: var(--f-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+  text-align: left;
+  border-bottom: 1px solid var(--paper);
+  padding: 0 16px 12px 0;
+  font-size: 11px;
+  font-weight: 500;
+}
+.tl td {
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  padding: 14px 16px 14px 0;
+}
+.tl td:first-child {
+  font-family: var(--f-display);
+  font-variant-numeric: tabular-nums;
+  width: 90px;
+  font-size: 30px;
+  line-height: 1;
+}
+.tl td:empty:after {
+  content: "—";
+  color: #45433e;
+}
+.tl tr.now td,
+.tl tr.now td:first-child {
+  color: var(--sign);
+}
+/* On a phone the table stops being a table: each row stacks and each side labels itself. */
+@media (width <= 640px) {
+  .tl {
+    min-width: 0;
+  }
+  .tl thead {
+    display: none;
+  }
+  .tl tr {
+    border-bottom: 1px solid var(--line);
+    grid-template-columns: 76px 1fr;
+    column-gap: 12px;
+    padding: 14px 0;
+    display: grid;
+  }
+  .tl td {
+    border: 0;
+    grid-column: 2;
+    padding: 0;
+    display: block;
+  }
+  .tl td:first-child {
+    grid-area: 1 / 1 / span 2;
+    width: auto;
+  }
+  .tl td[data-side]:empty {
+    display: none;
+  }
+  .tl td[data-side]:before {
+    content: attr(data-side);
+    font: 500 11px/1.4 var(--f-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-top: 6px;
+    display: block;
+  }
+  .tl td[data-side]:nth-child(2):before {
+    margin-top: 2px;
+  }
+}

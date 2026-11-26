@@ -1,0 +1,132 @@
+/* The Voices and Diego's wall, recovered from the live build's stylesheet. */
+.cap {
+  font-family: var(--f-cap);
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  margin: 0;
+  font-size: clamp(22px, 3.2vw, 34px);
+  font-weight: 900;
+  line-height: 1.12;
+}
+.cap mark {
+  background: var(--sign);
+  color: var(--ink);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.14em;
+}
+.cap .y {
+  color: var(--sign);
+}
+.voices {
+  background: var(--line);
+  border: 1px solid var(--line);
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  margin-top: 48px;
+  display: grid;
+}
+.voice {
+  background: var(--ink);
+  flex-direction: column;
+  grid-column: span 2;
+  gap: 18px;
+  min-width: 0;
+  padding: 28px 24px 24px;
+  display: flex;
+}
+.voice:nth-child(4),
+.voice:nth-child(5) {
+  grid-column: span 3;
+}
+.voice .cap {
+  font-size: clamp(19px, 2.2vw, 24px);
+}
+.voice .who {
+  border-top: 1px solid var(--line);
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+}
+.voice .who b {
+  font-family: var(--f-display);
+  letter-spacing: 0.04em;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+}
+.voice .who small {
+  font-family: var(--f-mono);
+  color: var(--ash);
+  letter-spacing: 0.06em;
+  text-align: right;
+  font-size: 11px;
+}
+.wall {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.wall img {
+  object-fit: cover;
+  filter: contrast(1.05) saturate(0.85);
+  width: 100%;
+  height: clamp(320px, 52vw, 560px);
+  display: block;
+}
+.wall:after {
+  content: "";
+  background: linear-gradient(
+    180deg,
+    var(--ink) 0%,
+    transparent 22%,
+    transparent 55%,
+    var(--ink) 100%
+  );
+  position: absolute;
+  inset: 0;
+}
+.wall figcaption {
+  z-index: 1;
+  position: absolute;
+  bottom: clamp(20px, 5vw, 56px);
+  left: 0;
+  right: 0;
+}
+.wall figcaption .cap {
+  text-shadow: 0 2px 18px #0009;
+  max-width: 22ch;
+}
+.wall figcaption small {
+  font-family: var(--f-mono);
+  color: var(--paper);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  font-size: 12px;
+  display: block;
+}
+@media (width <= 860px) {
+  .voices {
+    grid-template-columns: 1fr 1fr;
+  }
+  .voice,
+  .voice:nth-child(4),
+  .voice:nth-child(5) {
+    grid-column: span 1;
+  }
+  .voice:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+@media (width <= 520px) {
+  .voices {
+    grid-template-columns: 1fr;
+  }
+  .voice:nth-child(5) {
+    grid-column: span 1;
+  }
+}

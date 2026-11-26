@@ -1,0 +1,49 @@
+---
+// The Film's section: synopsis, credits, and — once the owner has them — where it has been
+// mentioned and where it is being shown. Both lists render nothing while empty (ADR 0002).
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import { film, filmCredits, repercussion, screenings } from "../content/film";
+import "../styles/film.css";
+---
+<section id="filme" class="about" aria-labelledby="filme-h"
+  ><div class="wrap"
+    ><span class="eyebrow">{film.eyebrow}</span><h2 class="h2" id="filme-h">{film.heading}</h2><div
+      class="syn"
+      ><p>{film.synopsis}</p><dl
+        >{
+          filmCredits.map((credit) => (
+            <Fragment><dt>{credit.role}</dt><dd>{credit.value}</dd></Fragment>
+          ))
+        }</dl
+      ></div
+    >{
+      repercussion.length > 0 && (
+        <div class="film-list"
+          ><h3 class="film-list__h">Repercussão</h3><ul
+            >{
+              repercussion.map((item) => (
+                <li
+                  ><a href={item.href} target="_blank" rel="noopener">{item.title}</a><small
+                    >{item.outlet}</small
+                  ></li
+                >
+              ))
+            }</ul
+          ></div
+        >
+      )
+    }{
+      screenings.length > 0 && (
+        <div class="film-list"
+          ><h3 class="film-list__h">Exibições</h3><ul
+            >{
+              screenings.map((item) => (
+                <li><span>{item.place}</span><small>{item.when}</small></li>
+              ))
+            }</ul
+          ></div
+        >
+      )
+    }</div
+  ></section
+>

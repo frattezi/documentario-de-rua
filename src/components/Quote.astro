@@ -1,0 +1,25 @@
+---
+// One quote, with its highlighted runs. The parts carry the highlighting, so no sentence is
+// ever written in markup.
+import type { QuotePart } from "../content/voices";
+
+interface Props {
+  parts: readonly QuotePart[];
+  class?: string;
+}
+
+const { parts, class: className = "cap" } = Astro.props;
+---
+<p class={className}
+  >{
+    parts.map((part) =>
+      part.kind === "mark" ? (
+        <mark>{part.text}</mark>
+      ) : part.kind === "yellow" ? (
+        <span class="y">{part.text}</span>
+      ) : (
+        part.text
+      ),
+    )
+  }</p
+>

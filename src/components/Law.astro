@@ -1,0 +1,24 @@
+---
+// The law section: the steps from bill to law, the 0,03% figure, and the rights list.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import { lawSection as s, lawSteps, rights } from "../content/law";
+import "../styles/law.css";
+---
+<section id="lei" aria-labelledby="lei-h"
+  ><div class="wrap"
+    ><span class="eyebrow">{s.eyebrow}</span><h2 class="h2" id="lei-h">{s.heading}</h2><div
+      class="law"
+      ><ol class="steps"
+        >{
+          lawSteps.map((step) => (
+            <li><span>{step.when}</span><div><b>{step.lead}</b>{step.rest}</div></li>
+          ))
+        }</ol
+      ><div class="stat"
+        ><span class="n">{s.stat.number}</span><p>{s.stat.body}</p></div
+      ></div
+    ><p class="lede rights-intro">{s.rightsIntro}</p><p class="rights" aria-label={rights.join(", ")}
+      >{rights.map((right) => <span>{right}</span>)}</p
+    ></div
+  ></section
+>

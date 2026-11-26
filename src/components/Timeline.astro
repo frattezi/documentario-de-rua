@@ -1,0 +1,36 @@
+---
+// Diego's and Charles's overpass, year by year. On a phone the table reflows into stacked rows
+// and each cell labels its own side through data-side.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import { timeline, timelineSection as s } from "../content/timeline";
+import "../styles/timeline.css";
+---
+<section id="viaduto" aria-labelledby="viaduto-h"
+  ><div class="wrap"
+    ><span class="eyebrow">{s.eyebrow}</span><h2 class="h2" id="viaduto-h">{s.heading}</h2><p
+      class="lede"
+      >{s.lede}</p
+    ><div class="tl-wrap"
+      ><table class="tl"
+        ><thead
+          ><tr><th>{s.columns.year}</th><th>{s.columns.charles}</th><th>{s.columns.angola}</th></tr
+          ></thead
+        ><tbody
+          >{
+            timeline.map((row) =>
+              row.span ? (
+                <tr class="now"><td>{row.year}</td><td colspan="2">{row.text}</td></tr>
+              ) : (
+                <tr
+                  ><td>{row.year}</td><td data-side={s.columns.charles}>{row.charles}</td><td
+                    data-side={s.columns.angola}>{row.angola}</td
+                  ></tr
+                >
+              ),
+            )
+          }</tbody
+        ></table
+      ></div
+    ></div
+  ></section
+>

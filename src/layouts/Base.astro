@@ -1,0 +1,32 @@
+---
+// The page shell: <head> as on the live build, the icon sprite, and global styles.
+import IconSprite from "../components/IconSprite.astro";
+import "../styles/global.css";
+
+const title = "Entre a Lei e a Rua — documentário";
+const description =
+  "Curta documental de Guilherme Simões sobre a internação involuntária de pessoas em situação de rua em Belo Horizonte. Assista no YouTube e apoie.";
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/img/thumb.jpg" />
+    <meta name="theme-color" content="#0b0b0a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@800;900&family=Sora:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+  </head>
+  <body>
+    <IconSprite />
+    <slot />
+  </body>
+</html>

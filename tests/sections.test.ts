@@ -108,6 +108,14 @@ describe("the Film's published content is unchanged", () => {
     expect(text(built.querySelector("#filme-h")!)).toBe(text(reference.querySelector("#filme-h")!));
   });
 
+  it("keeps the live eyebrow", () => {
+    expect(text(built.querySelector(".eyebrow")!)).toBe(text(reference.querySelector(".eyebrow")!));
+  });
+
+  it("has the live section's hrefs and srcs, in order", () => {
+    expect(refs(built.querySelector("section#filme")!)).toEqual(refs(reference));
+  });
+
   it("renders nothing for repercussão or exibições while they are empty", () => {
     expect(built.querySelectorAll(".film-list")).toHaveLength(0);
   });

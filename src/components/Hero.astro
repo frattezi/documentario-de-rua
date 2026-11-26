@@ -1,0 +1,42 @@
+---
+// The hero: the title over the overpass photo, the Film's player, its facts and the three calls.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import Icon from "./Icon.astro";
+import YouTubePlayer from "./YouTubePlayer";
+import { filmFacts, filmVideo, heroCalls, heroPhoto as photo, heroTitle as t, watchLine } from "../content/hero";
+import "../styles/hero.css";
+---
+<section class="hero" aria-labelledby="t"
+  ><h1 id="t" aria-label={t.label}
+    ><span class="ov" aria-hidden="true"
+      ><picture class="ov__photo"
+        ><source media={photo.squareMedia} srcset={photo.square.src} width={photo.square.width}
+          height={photo.square.height} /><img src={photo.wide.src} alt="" width={photo.wide.width}
+          height={photo.wide.height} fetchpriority="high" /></picture
+      ><span class="ov__title"
+        ><span class="ov__line">{t.lines[0]}</span><span class="ov__sp">{" "}</span><span class="ov__line"
+          >{t.lines[1]}</span
+        ></span
+      ><span class="ov__tag">{t.tag.start}<span class="ov__opt">{t.tag.optional}</span>{t.tag.end}</span
+      ></span
+    ></h1
+  ><div class="wrap"
+    ><span class="type">{watchLine}</span><div class="player"
+      ><YouTubePlayer client:visible {...filmVideo} /><div class="meta"
+        ><strong>{filmFacts.kind}</strong><span>{filmFacts.place}</span></div
+      ><div class="cta"
+        >{
+          heroCalls.map((call) => (
+            <a
+              class={`pill pill--${call.style}`}
+              href={call.href}
+              target={call.external ? "_blank" : undefined}
+              rel={call.external ? "noopener" : undefined}
+              >{call.icon ? <Fragment><Icon name={call.icon} /> {call.label}</Fragment> : call.label}</a
+            >
+          ))
+        }</div
+      ></div
+    ></div
+  ></section
+>

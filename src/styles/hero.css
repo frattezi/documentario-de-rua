@@ -1,0 +1,315 @@
+/* The hero: the title over the overpass photo, then the player, the film facts and the calls. */
+.hero {
+  text-align: center;
+  padding-block: 0 clamp(48px, 8vw, 96px);
+  position: relative;
+}
+.hero h1 {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* The overpass: the photo with the title on its deck. --deck is the deck's height in the photo. */
+.ov {
+  --deck: 47.7%;
+  height: min(45.8vw, 86vh, 860px);
+  min-height: 340px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  container-type: inline-size;
+}
+.ov__photo,
+.ov__photo img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+.ov__photo img {
+  object-fit: cover;
+  object-position: 50% var(--deck);
+  transform-origin: 50% var(--deck);
+  filter: saturate(0.62) contrast(1.08) brightness(0.78);
+}
+.ov:before,
+.ov:after {
+  content: "";
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.ov:before {
+  height: var(--deck);
+  background: linear-gradient(180deg, var(--ink) 0%, #0b0b0a9e 38%, #0b0b0a1a 100%);
+  top: 0;
+}
+.ov:after {
+  background: linear-gradient(180deg, #0b0b0a00, #0b0b0abf 55%, var(--ink));
+  height: 46%;
+  bottom: 0;
+}
+.ov__title {
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - var(--deck) - 0.075em);
+  text-align: center;
+  font: 400 clamp(56px, 12.6cqi, 176px) / 0.8 var(--f-display);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-shadow: 0 0.03em 0.06em #0000008c;
+  padding-inline: 12px;
+  display: block;
+  position: absolute;
+}
+.ov__line {
+  white-space: nowrap;
+  display: inline-block;
+}
+.ov__tag {
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: calc(var(--deck) + 10%);
+  font: 500 clamp(10px, 1cqi, 13px) / 1.4 var(--f-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #efebe2c7;
+  text-shadow: 0 1px 6px #000c;
+  position: absolute;
+}
+.hero > .wrap {
+  z-index: 3;
+  margin-top: calc(-1 * clamp(70px, 13vw, 210px));
+  position: relative;
+}
+@container (width<=640px) {
+  .ov__title {
+    font-size: 19.5cqi;
+    line-height: 0.82;
+  }
+  .ov__line {
+    display: block;
+  }
+  .ov__sp {
+    display: none;
+  }
+  .ov__tag {
+    top: calc(var(--deck) + 16%);
+    padding-inline: 16px;
+  }
+  .ov__opt {
+    display: none;
+  }
+}
+/* Under 640px the square crop of the photo is shown, as a square. */
+@media (width<=640px) {
+  .ov {
+    aspect-ratio: 1;
+    height: auto;
+    min-height: 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ov__photo img {
+    animation: 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both ov-settle;
+  }
+  .ov__title {
+    animation: 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s both ov-rise;
+  }
+  .ov__tag {
+    animation: 0.8s ease-out 1.2s both ov-fade;
+  }
+}
+@keyframes ov-settle {
+  0% {
+    filter: saturate(0.3) contrast(1.08) brightness(0.35);
+    transform: scale(1.08);
+  }
+}
+@keyframes ov-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0.18em);
+  }
+}
+@keyframes ov-fade {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* "Assista o documentário completo no YouTube", typed out with a cyan caret. */
+.type {
+  white-space: nowrap;
+  border-right: 3px solid var(--caret);
+  max-width: 100%;
+  margin-top: 18px;
+  font-size: clamp(15px, 2.2vw, 19px);
+  font-weight: 600;
+  animation:
+    1.6s steps(40, end) 0.9s both typing,
+    0.8s step-end 2.5s 4 both caret;
+  display: inline-block;
+  overflow: hidden;
+}
+@keyframes typing {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+@keyframes caret {
+  50% {
+    border-color: #0000;
+  }
+}
+
+/* The player. */
+.player {
+  text-align: left;
+  max-width: 960px;
+  margin: clamp(32px, 5vw, 56px) auto 0;
+  animation: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 1.6s both rise;
+}
+@keyframes rise {
+  0% {
+    filter: blur(4px) brightness(0.5);
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    filter: none;
+    transform: none;
+  }
+}
+.screen {
+  aspect-ratio: 16/9;
+  max-width: 100%;
+  box-shadow:
+    0 40px 120px -30px #2252b88c,
+    0 0 0 1px var(--line);
+  background: #000 50% / cover no-repeat;
+  border-radius: 6px;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.screen img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition:
+    transform 0.6s,
+    filter 0.6s;
+  display: block;
+}
+.screen:hover img {
+  filter: brightness(0.82);
+  transform: scale(1.02);
+}
+.play {
+  aspect-ratio: 1;
+  background: var(--sign);
+  border-radius: 50%;
+  place-items: center;
+  width: clamp(64px, 9vw, 92px);
+  margin: auto;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+  display: grid;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 0 10px #f6c4002e;
+}
+.screen:hover .play {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 16px #f6c40024;
+}
+.play svg {
+  width: 36%;
+  fill: var(--ink);
+  margin-left: 6%;
+}
+.dur {
+  font-family: var(--f-mono);
+  background: #000000bf;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 13px;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+button.screen {
+  cursor: pointer;
+  width: 100%;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  padding: 0;
+}
+.screen iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+/* The film facts and the three calls under the player. */
+.meta {
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: flex;
+}
+.meta strong {
+  font-size: 17px;
+  font-weight: 600;
+}
+.meta span {
+  font-family: var(--f-mono);
+  color: var(--ash);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.cta {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 22px;
+  display: flex;
+}
+
+@media (width<=520px) {
+  .type {
+    white-space: normal;
+    border-right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .type,
+  .player {
+    animation: none;
+  }
+  .screen img,
+  .play {
+    transition: none;
+  }
+}

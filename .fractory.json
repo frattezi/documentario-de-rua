@@ -2,12 +2,12 @@
   "mode": "personal",
   "ticketSource": {
     "kind": "github",
-    "repo": "frattezi/entre-a-lei-e-a-rua"
+    "repo": "frattezi/documentario-de-rua"
   },
   "hasCi": false,
   "ticketGate": false,
-  "baseBranch": "main",
-  "sandboxImage": "sandcastle:entre-a-lei-e-a-rua",
+  "baseBranch": "release",
+  "sandboxImage": "sandcastle:documentario-de-rua",
   "maxIterations": 10,
   "flow": "build"
 }

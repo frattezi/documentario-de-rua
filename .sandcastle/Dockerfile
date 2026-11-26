@@ -1,5 +1,5 @@
 # Sandbox image for Fractory Runs in this repository.
-# Build: sandcastle docker build-image --image-name sandcastle:entre-a-lei-e-a-rua
+# Build: sandcastle docker build-image --image-name sandcastle:documentario-de-rua
 # Named in .fractory.json as `sandboxImage`.
 FROM node:24-bookworm
 

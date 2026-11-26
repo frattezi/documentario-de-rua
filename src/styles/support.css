@@ -1,0 +1,109 @@
+/* The support section, "Do filme para a rua", on the tarp blue, with the PIX card. */
+.support {
+  background: var(--tarp);
+  color: #fff;
+}
+.support .eyebrow {
+  color: #ffffffbf;
+}
+.support .eyebrow:before {
+  background: #fff;
+}
+.pix {
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+  margin-top: 32px;
+  display: grid;
+}
+.pix > * {
+  min-width: 0;
+}
+.pix p {
+  max-width: 52ch;
+  margin: 0 0 16px;
+}
+/* Until the destination is confirmed, a tag says so under the paragraph. */
+.pending {
+  font-family: var(--f-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #00000040;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  display: inline-block;
+}
+.pixcard {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 6px;
+  grid-template-columns: 132px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  display: grid;
+}
+/* The QR code's place, dashed while there is none. */
+.qr {
+  aspect-ratio: 1;
+  font-family: var(--f-mono);
+  color: var(--ash);
+  text-align: center;
+  border: 2px dashed #4a4843;
+  border-radius: 4px;
+  place-items: center;
+  padding: 8px;
+  font-size: 11px;
+  display: grid;
+}
+.pixcard .lbl {
+  font-family: var(--f-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+  font-size: 11px;
+}
+/* One click selects the whole key, for a manual copy. */
+.key {
+  font-family: var(--f-mono);
+  word-break: break-all;
+  user-select: all;
+  margin: 4px 0 14px;
+  font-size: 15px;
+}
+.btn {
+  font: 600 14px var(--f-body);
+  cursor: pointer;
+  background: var(--sign);
+  color: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  text-decoration: none;
+  display: inline-flex;
+}
+.btn[disabled] {
+  color: var(--ash);
+  cursor: not-allowed;
+  background: #2e2d2a;
+}
+/* Green while the button reads "Chave copiada". */
+.btn--done {
+  background: #3fd07a;
+}
+@media (width<=860px) {
+  .pix {
+    grid-template-columns: 1fr;
+  }
+}
+@media (width<=520px) {
+  .pixcard {
+    grid-template-columns: 1fr;
+  }
+  .qr {
+    max-width: 160px;
+  }
+}

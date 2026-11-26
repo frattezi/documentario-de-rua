@@ -1,0 +1,19 @@
+---
+// "Do filme para a rua": why to support, and the PIX card with the key and its copy button.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import PixCopy from "./PixCopy";
+import { pixKey } from "../content/pix";
+import { supportSection as s } from "../content/support";
+import "../styles/support.css";
+---
+<section id={s.id} class="support" aria-labelledby={`${s.id}-h`}
+  ><div class="wrap"
+    ><span class="eyebrow">{s.eyebrow}</span><h2 class="h2" id={`${s.id}-h`}>{s.heading}</h2><div class="pix"
+      ><div><p>{s.text}</p><span class="pending">{s.pending}</span></div><div class="pixcard"
+        ><div class="qr">{s.qrPlaceholder}</div><div
+          ><span class="lbl">{s.keyLabel}</span><PixCopy client:visible pixKey={pixKey} /></div
+        ></div
+      ></div
+    ></div
+  ></section
+>

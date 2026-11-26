@@ -1,0 +1,63 @@
+---
+// "Mais histórias da rua": the feature video, the Shorts and the social cards.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import Icon from "./Icon.astro";
+import {
+  channelSection as s,
+  feature,
+  shorts,
+  socialCards,
+  youtubeShortUrl,
+  youtubeWatchUrl,
+} from "../content/channel";
+import "../styles/channel.css";
+
+const networkLabel = { youtube: "YouTube", instagram: "Instagram" } as const;
+const networkIcon = { youtube: "yt", instagram: "ig" } as const;
+const networkClass = { youtube: "social--yt", instagram: "social--ig" } as const;
+---
+<section id={s.id} class="channel" aria-labelledby={`${s.id}-h`}
+  ><div class="wrap"
+    ><div class="sec-head"
+      ><div
+        ><span class="eyebrow">{s.eyebrow}</span><h2 class="h2" id={`${s.id}-h`}>{s.heading}</h2></div
+      ><a class="pill pill--ghost" href={s.allVideos.href} target="_blank" rel="noopener"
+        ><Icon name="yt" /> {s.allVideos.label}</a
+      ></div
+    ><a class="feature" href={youtubeWatchUrl(feature.id)} target="_blank" rel="noopener"
+      ><span class="vthumb"
+        ><img src={feature.thumbnail} alt={feature.thumbnailAlt} loading="lazy" /><span class="badge"
+          ><Icon name="yt" /> {feature.duration}</span
+        ></span
+      ><span class="txt"
+        ><b>{feature.title}</b><p>{feature.description}</p><span class="go"
+          ><Icon name="yt" /> {s.watchLabel}</span
+        ></span
+      ></a
+    ><div class="shorts"
+      >{
+        shorts.map((short) => (
+          <a class="short" href={youtubeShortUrl(short.id)} target="_blank" rel="noopener"
+            ><span class="vthumb"
+              ><img src={short.thumbnail} alt={short.thumbnailAlt} loading="lazy" /><span class="badge"
+                ><Icon name="yt" /> {s.shortsBadge}</span
+              ></span
+            ><span class="t">{short.title}</span></a
+          >
+        ))
+      }</div
+    ><h3 class="sub-h">{s.followHeading}</h3><div class="socials"
+      >{
+        socialCards.map((card) => (
+          <a class={`social ${networkClass[card.network]}`} href={card.href} target="_blank" rel="noopener"
+            ><span class="logo"
+              ><Icon name={networkIcon[card.network]} /><small>{networkLabel[card.network]}</small></span
+            ><span class="handle">{card.handle}</span><span class="desc">{card.description}</span><span
+              class="act">{card.action}</span
+            ></a
+          >
+        ))
+      }</div
+    ></div
+  ></section
+>

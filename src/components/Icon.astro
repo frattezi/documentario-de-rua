@@ -1,0 +1,9 @@
+---
+// A logo from the sprite in IconSprite.astro.
+interface Props {
+  name: "yt" | "ig";
+}
+const { name } = Astro.props;
+const viewBox = name === "yt" ? "0 0 28 20" : "0 0 24 24";
+---
+<svg class="ico" viewBox={viewBox} aria-hidden="true"><use href={`#i-${name}`}></use></svg>

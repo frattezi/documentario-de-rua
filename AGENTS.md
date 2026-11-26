@@ -14,8 +14,9 @@ Two plans, in order:
    — recover the lost source from [reference/](reference/README.md), proven by pixel parity.
    Accepted. Builds, but is never deployed.
 2. [docs/specs/0002-documentario-de-rua.md](docs/specs/0002-documentario-de-rua.md) — rename the
-   project, add the presentation and the three calls to action, give the Film its own page. The
-   first deploy is this one's.
+   project, add the presentation and the three calls to action, and expand the Film's section. The
+   site stays one page ([ADR 0002](docs/adr/0002-the-site-is-one-page-and-a-film-is-a-section.md)).
+   The first deploy is this one's.
 
 ## Stack
 

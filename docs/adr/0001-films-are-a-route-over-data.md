@@ -1,6 +1,6 @@
 # Films are a generic route over typed data, not hand-written pages
 
-Status: accepted (2026-11-26)
+Status: superseded (2026-11-26) by [ADR 0002](0002-the-site-is-one-page-and-a-film-is-a-section.md)
 
 The owner's briefing asks for "uma página própria" for *Entre a Lei e a Rua* — and, separately,
 that the "Mais histórias da rua" section keep growing with the Project's next productions. One

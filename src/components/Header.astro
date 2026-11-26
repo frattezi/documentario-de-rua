@@ -1,0 +1,22 @@
+---
+// The page header: credit line, section nav and social icons.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import Icon from "./Icon.astro";
+import { byline, headerIcons, navItems, navLabel } from "../content/header";
+import "../styles/header.css";
+---
+<header class="wrap top"
+  ><span class="by">{byline}</span><span class="top-right"
+    ><nav aria-label={navLabel}
+      >{navItems.map((item) => <a href={item.href}>{item.label}</a>)}</nav
+    ><span class="icons"
+      >{
+        headerIcons.map((link) => (
+          <a href={link.href} target="_blank" rel="noopener" aria-label={link.label}
+            ><Icon name={link.icon} /></a
+          >
+        ))
+      }</span
+    ></span
+  ></header
+>

@@ -1,0 +1,30 @@
+---
+// The page footer: credits, follow buttons and the closing line.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
+import Icon from "./Icon.astro";
+import { credits, followLinks, footerEnd } from "../content/footer";
+import "../styles/footer.css";
+---
+<footer
+  ><div class="wrap"
+    ><div class="credits"
+      >{
+        credits.map((credit) => (
+          <div
+            ><h4>{credit.role}</h4><p>{credit.names}</p></div
+          >
+        ))
+      }</div
+    ><div class="follow"
+      >{
+        followLinks.map((link) => (
+          <a class={`pill pill--${link.variant}`} href={link.href} target="_blank" rel="noopener"
+            ><Icon name={link.icon} /> {link.label}</a
+          >
+        ))
+      }</div
+    ><div class="end"
+      ><span class="title-sm">{footerEnd.title}</span><small>{footerEnd.note}</small></div
+    ></div
+  ></footer
+>

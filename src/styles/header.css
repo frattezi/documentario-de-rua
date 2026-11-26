@@ -1,0 +1,66 @@
+/* The page header: credit line, section nav and social icons. */
+.top {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-block: 18px;
+  display: flex;
+}
+.top .by {
+  font-family: var(--f-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+  font-size: 12px;
+}
+.top nav {
+  flex-wrap: wrap;
+  gap: 18px;
+  display: flex;
+}
+.top nav a {
+  font-family: var(--f-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+  font-size: 12px;
+  text-decoration: none;
+}
+.top nav a:hover {
+  color: var(--paper);
+}
+.top .icons {
+  align-items: center;
+  gap: 14px;
+  display: flex;
+}
+.top .icons a {
+  opacity: 0.85;
+  font-size: 15px;
+  display: inline-flex;
+}
+.top .icons a:hover {
+  opacity: 1;
+}
+.top-right {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  display: flex;
+}
+/* Phones: larger tap targets for the nav links and icons. */
+@media (width<=640px) {
+  .top nav a {
+    padding-block: 12px;
+  }
+  .top .icons {
+    gap: 4px;
+  }
+  .top .icons a {
+    padding: 11px;
+  }
+  .top .icons a:first-child {
+    margin-left: -11px;
+  }
+}

@@ -1,0 +1,26 @@
+/* Design tokens, recovered from the live build's stylesheet under the same names. */
+:root {
+  --ink: #0b0b0a;
+  --ink-2: #151513;
+  --line: #2a2926;
+  --paper: #efebe2;
+  --ash: #9a968c;
+  --sign: #f6c400;
+  --tarp: #2252b8;
+  --caret: #3fe0d0;
+  --yt: #f03;
+  --ig: linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e 25%,
+    #d62976 50%,
+    #962fbf 75%,
+    #4f5bd5
+  );
+  --f-display: "Bebas Neue", "Oswald", Impact, "Arial Narrow", sans-serif;
+  --f-cap: "Montserrat", "Arial Black", system-ui, sans-serif;
+  --f-body: "Sora", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --max: 1080px;
+  color-scheme: dark;
+}

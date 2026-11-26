@@ -1,4 +1,4 @@
-/* The support section and its PIX card, recovered from the live build's stylesheet. */
+/* The support section, "Do filme para a rua", on the tarp blue, with the PIX card. */
 .support {
   background: var(--tarp);
   color: #fff;
@@ -23,6 +23,7 @@
   max-width: 52ch;
   margin: 0 0 16px;
 }
+/* Until the destination is confirmed, a tag says so under the paragraph. */
 .pending {
   font-family: var(--f-mono);
   letter-spacing: 0.1em;
@@ -43,6 +44,7 @@
   padding: 24px;
   display: grid;
 }
+/* The QR code's place, dashed while there is none. */
 .qr {
   aspect-ratio: 1;
   font-family: var(--f-mono);
@@ -62,6 +64,7 @@
   color: var(--ash);
   font-size: 11px;
 }
+/* One click selects the whole key, for a manual copy. */
 .key {
   font-family: var(--f-mono);
   word-break: break-all;
@@ -87,15 +90,16 @@
   cursor: not-allowed;
   background: #2e2d2a;
 }
+/* Green while the button reads "Chave copiada". */
 .btn--done {
   background: #3fd07a;
 }
-@media (width <= 860px) {
+@media (width<=860px) {
   .pix {
     grid-template-columns: 1fr;
   }
 }
-@media (width <= 520px) {
+@media (width<=520px) {
   .pixcard {
     grid-template-columns: 1fr;
   }

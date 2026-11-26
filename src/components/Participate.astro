@@ -7,7 +7,8 @@
 import PixCopy from "./PixCopy";
 import { calls, formPendingReason, participate } from "../content/participate";
 import { site } from "../content/site";
-import { pixKey, support } from "../content/support";
+import { pixKey } from "../content/pix";
+import { supportSection } from "../content/support";
 import "../styles/support.css";
 import "../styles/participate.css";
 ---
@@ -31,8 +32,8 @@ import "../styles/participate.css";
             >{
               call.kind === "pix" ? (
                 <div class="pixcard"
-                  ><div class="qr">{support.qrLabel}</div><div
-                    ><span class="lbl">{support.keyLabel}</span><PixCopy
+                  ><div class="qr">{supportSection.qrPlaceholder}</div><div
+                    ><span class="lbl">{supportSection.keyLabel}</span><PixCopy
                       client:visible
                       pixKey={pixKey}
                     /></div

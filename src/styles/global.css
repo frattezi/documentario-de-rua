@@ -32,6 +32,17 @@
     scroll-behavior: smooth;
   }
 }
+/* A visitor who asked for reduced motion gets the page at rest: no animation and no transition
+   anywhere, including on hover. Each animation's end state is the element's own style, so
+   nothing is left hidden. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 body {
   margin: 0;
 }

@@ -9,7 +9,8 @@
     "check": "astro check",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "verify": "astro check && astro build && vitest run"
+    "verify": "astro check && astro build && vitest run",
+    "test:visual": "playwright test e2e/visual.spec.ts"
   },
   "dependencies": {
     "@astrojs/react": "^7.1.9",

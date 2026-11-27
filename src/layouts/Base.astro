@@ -1,30 +1,29 @@
 ---
 // The page shell: the Project's <head>, the icon sprite, and global styles.
 // Every name and tag comes from one place (src/content/site.ts), so no string is repeated.
+// The live markup has no whitespace between tags; line breaks sit inside the tags to keep it so.
 import IconSprite from "../components/IconSprite.astro";
 import { site } from "../content/site";
 import "../styles/global.css";
 ---
 <!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>{site.title}</title>
-    <meta name="description" content={site.description} />
-    <meta property="og:title" content={site.title} />
-    <meta property="og:description" content={site.description} />
-    <meta property="og:image" content={site.shareImage} />
-    <meta name="theme-color" content={site.themeColor} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+<html lang="pt-BR"
+  ><head
+    ><meta charset="utf-8" /><meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    /><title>{site.title}</title><meta name="description" content={site.description} /><meta
+      property="og:title"
+      content={site.title}
+    /><meta property="og:description" content={site.description} /><meta
+      property="og:image"
+      content={site.shareImage}
+    /><meta name="theme-color" content={site.themeColor} /><link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@800;900&family=Sora:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
-    />
-  </head>
-  <body>
-    <IconSprite />
-    <slot />
-  </body>
-</html>
+    /></head
+  ><body><IconSprite /><slot /></body
+></html>
